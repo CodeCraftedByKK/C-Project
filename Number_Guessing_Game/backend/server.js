@@ -4,10 +4,13 @@ const path = require("path");
 const { spawnSync } = require("child_process");
 const { randomUUID } = require("crypto");
 
-const PORT = 3000;
+const PORT = Number(process.env.PORT) || 3000;
 const ROOT = path.join(__dirname, "..");
 const FRONTEND = path.join(ROOT, "frontend");
-const GAME_EXE = path.join(__dirname, "game.exe");
+const GAME_EXE = path.join(
+    __dirname,
+    process.platform === "win32" ? "game.exe" : "game"
+);
 const MAX_ATTEMPTS = 7;
 const sessions = new Map();
 
@@ -113,7 +116,7 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-server.listen(PORT, () => {
+server.listen(PORT, "0.0.0.0", () => {
   console.log(`Number Guessing Game running at http://localhost:${PORT}`);
   console.log("Press Ctrl+C to stop the server.");
 });

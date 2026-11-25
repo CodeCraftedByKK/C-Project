@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101827">
+  <title>Number Quest — Guessing Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">?</span><span>NUMBER<span class="brand-accent">QUEST</span></span></div>
+      <span class="top-tag">C POWERED GAME</span>
+    </header>
+
+    <section class="game-card">
+      <div class="eyebrow"><span class="pulse"></span> THE CHALLENGE IS ON</div>
+      <h1>Can you guess<br><span>the number?</span></h1>
+      <p class="intro">A secret number is waiting between 1 and 100. You have seven attempts. Make them count.</p>
+
+      <section id="welcome-panel" class="panel">
+        <label for="player-name">PLAYER NAME</label>
+        <div class="name-row">
+          <input id="player-name" type="text" maxlength="30" placeholder="Enter your name" autocomplete="given-name">
+          <button id="start-btn" class="primary-btn">Start game <span>→</span></button>
+        </div>
+      </section>
+
+      <section id="game-panel" class="panel hidden">
+        <div class="game-meta">
+          <div><span class="meta-label">PLAYER</span><strong id="player-display">Player</strong></div>
+          <div class="attempt-box"><span class="meta-label">ATTEMPTS LEFT</span><strong id="attempts-left">7</strong></div>
+        </div>
+        <div class="range-label"><span>01</span><span>GUESS A NUMBER</span><span>100</span></div>
+        <form id="guess-form" class="guess-row">
+          <input id="guess-input" type="number" min="1" max="100" placeholder="?" required>
+          <button class="primary-btn" type="submit">Guess <span>→</span></button>
+        </form>
+        <div class="meter"><div id="meter-fill"></div></div>
+        <p id="feedback" class="feedback" aria-live="polite">Your first guess could be the one.</p>
+      </section>
+
+      <section id="result-panel" class="result-panel hidden">
+        <div id="result-icon" class="result-icon">★</div>
+        <h2 id="result-title">Well played!</h2>
+        <p id="result-message"></p>
+        <button id="restart-btn" class="primary-btn">Play again <span>↻</span></button>
+      </section>
+
+      <footer class="card-footer">
+        <span><i></i> BUILT WITH C + NODE.JS</span>
+        <span>THINK · GUESS · WIN</span>
+      </footer>
+    </section>
+    <p class="page-note">A little logic. A little luck. A lot of fun.</p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
